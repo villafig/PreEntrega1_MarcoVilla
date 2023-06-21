@@ -1,17 +1,15 @@
 import React from "react";
 import { Carwidget } from "./Carwidget";
+import Live from "../../Paginas/Live/LivePage";
 
 export const NavBar = ({greetings}) => {
 
     return <nav>
             <ul style={{display: "flex", justifyContent:"space-around"}}>  
-                <il>Inicio</il>
-                <il>Productos</il>
-                 <il>Contacto</il>
-                 <il>Contacto</il>
-                 <il>Contacto</il>
-
-                 <Carwidget></Carwidget>
+                <il><a href="/">Home</a></il>
+                <il><a href="/contact">Contact</a></il>
+                 <il><a href="/live">Alive</a></il>
+                 <il><a href="/dead">Dead</a></il>
             </ul>
      </nav>
 } 

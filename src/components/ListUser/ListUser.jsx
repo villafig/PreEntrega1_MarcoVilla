@@ -3,12 +3,14 @@ import axios from 'axios';
 import CardUser from '../CardUser/CardUser';
 import './ListUser.css';
 
-const ListUser = () => {
+const ListUser = ({status}) => {
   const [chars, setChars] = useState([]);
 
   useEffect(() => {
     axios('http://rickandmortyapi.com/api/character').then((json) => {
-      setChars(json.data.results);
+      let filteredChars = json.data.results
+      if (status) filteredChars = filteredChars.filter(char => char.status === status)
+      setChars(filteredChars);
     });
   }, []);
 

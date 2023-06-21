@@ -3,30 +3,41 @@ import "./App.css";
 import { NavBar } from './components/navBar/navBar'
 import { Carwidget } from './components/navBar/Carwidget'
 import { ItemListContainer } from './components/navBar/ItemListContainer'
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
 
 //Importar Header
 
 import Header from "./components/Header/Header";
 import ListUser from "./components/ListUser/ListUser";
 
+//Importar páginas
+
+import HomePage from "./Paginas/Home/HomePage"
+import ContactPage  from "./Paginas/Contact/contactPage"
+import DeadPage from "./Paginas/Dead/deadPage"
+import LivePage from "./Paginas/Live/LivePage"
+
 
 const App = () => {
-  return  (
-    <div className="App">
-    <Header />
-    <ListUser />
-    </div>
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        <NavBar />
+        <Routes>
+          <Route exact path="/" element={<HomePage />} /> 
+          <Route exact path="/contact" element={< ContactPage/>} />
+          <Route exact path="/dead" element={<DeadPage />} />
+          <Route exact path="/live" element={<LivePage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
-export default App;
+export default App
 
-
-//Impotar React Router DOM
-
-//import {BrowserRouter as Router,Routes, Route} from "react-router-dom";
-
-//Importar páginas
 
 
 
@@ -42,5 +53,4 @@ export default App;
   // )
 // }
 
-// export default App
 
