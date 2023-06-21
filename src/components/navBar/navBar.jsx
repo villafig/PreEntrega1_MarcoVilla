@@ -8,7 +8,11 @@ export const NavBar = ({greetings}) => {
                 <il>Inicio</il>
                 <il>Productos</il>
                  <il>Contacto</il>
+                 <il>Contacto</il>
+                 <il>Contacto</il>
+
                  <Carwidget></Carwidget>
             </ul>
      </nav>
 } 
+

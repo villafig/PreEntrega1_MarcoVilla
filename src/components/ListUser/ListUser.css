@@ -1,0 +1,18 @@
+.ListUser {
+    display: flex;
+    justify-content: center;
+}
+
+.Card-Lists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.grid-item {
+    margin: 10px;
+}
