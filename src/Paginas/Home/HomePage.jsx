@@ -1,10 +1,13 @@
+import React from "react";
 import ProductList from "../../components/ItemListContainer/ItemListContainer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-container">
       <h1>Home</h1>
-      <ProductList numero={13} letras={"kjkjskjsjsks"}></ProductList>
+      <div className="grid-container">
+        <ProductList></ProductList>
+      </div>
     </div>
   );
 };

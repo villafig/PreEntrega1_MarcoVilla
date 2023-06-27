@@ -1,5 +1,6 @@
 import "./App.css";
 import { NavBar } from "./components/navBar/navBar";
+import { Carwidget } from "./components/navBar/Carwidget";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Importar Header
@@ -18,6 +19,8 @@ const App = () => {
       <div className="App">
         <Header />
         <NavBar />
+        <Carwidget />
+
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/category/:id" element={<CategoryPage />} />

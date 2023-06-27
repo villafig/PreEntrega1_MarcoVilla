@@ -1,15 +1,16 @@
 import React from "react";
 import "./header.css";
-import image from "./RickyMorty.jpeg";
+import image from "./e-commerce-logo.jpeg";
 
 const Header = () => {
-    return (
-        <div className="Header">
-            <h1> !!!Personajes de Rick y Morty!!!! </h1>
-            <img src={image} alt="Rick-and-Morty.png" />
-        </div>
-    );
+  return (
+    <div className="Header">
+      <h1> Bienvenido </h1>
+      <a href="/">
+        <img src={image} alt="logo.png" />
+      </a>
+    </div>
+  );
 };
 
 export default Header;
-

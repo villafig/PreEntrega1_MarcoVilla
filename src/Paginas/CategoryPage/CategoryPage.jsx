@@ -5,7 +5,7 @@ const categoryPage = () => {
   const { id } = useParams();
   return (
     <div>
-      <h1>Iten</h1>
+      <h1>Item</h1>
       <ItemListContainer category={id}></ItemListContainer>
     </div>
   );
