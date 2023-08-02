@@ -10,11 +10,15 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   return (
     <Card
-      sx={{ maxWidth: 345 }}
+      sx={{ maxWidth: 200 }}
       onClick={() => navigate(`/item/${product.id}`)}
     >
       <CardActionArea>
-        <CardMedia component="img" image={product.image} alt="green iguana" />
+        <CardMedia
+          component="img"
+          image={product.image}
+          alt="imagen_producto"
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {product.title}

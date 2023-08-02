@@ -12,19 +12,23 @@ import Header from "./components/Header/Header";
 import HomePage from "./Paginas/Home/HomePage";
 import CategoryPage from "./Paginas/CategoryPage/CategoryPage";
 import ItemPage from "./Paginas/ItemPage/ItemPage";
+import UsersPage from "./Paginas/UsersPage/UsersPage";
 
 const App = () => {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header title="The Street Store" />
         <NavBar />
         <Carwidget />
+      </div>
 
+      <div>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/category/:id" element={<CategoryPage />} />
           <Route exact path="/item/:id" element={<ItemPage />} />
+          <Route exact path="/users" element={<UsersPage />} />
         </Routes>
       </div>
     </Router>
@@ -32,15 +36,3 @@ const App = () => {
 };
 
 export default App;
-
-//function App() {
-//  const [count, setCount] = useState(0)
-
-// return (
-// <Router>
-// <h1 className='Titulo'>ECommerce</h1>
-// <NavBar></NavBar>
-// <ItemListContainer className='items' greetings={"Lista de Items"}></ItemListContainer>
-// </Router>
-// )
-// }

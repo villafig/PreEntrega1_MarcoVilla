@@ -1,0 +1,23 @@
+nav {
+    background-color: #92979B;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    margin-right: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: white !important;
+}
+
+a:hover {
+    color: white;
+}

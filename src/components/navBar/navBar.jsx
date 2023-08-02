@@ -1,10 +1,11 @@
 import React from "react";
+import "./navBar.css";
 import { Carwidget } from "./Carwidget";
 
 export const NavBar = ({ greetings }) => {
   return (
     <nav>
-      <ul style={{ display: "flex", justifyContent: "space-around" }}>
+      <ul>
         <li>
           <a href="/">Home</a>
         </li>
@@ -13,6 +14,9 @@ export const NavBar = ({ greetings }) => {
         </li>
         <li>
           <a href="/category/men's clothing">Hombre</a>
+        </li>
+        <li>
+          <a href="/users">Subir Info</a>
         </li>
       </ul>
     </nav>
