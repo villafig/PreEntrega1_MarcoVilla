@@ -4,11 +4,10 @@ import { db } from "../../firebase/firebase";
 
 const Todo = () => {
   const [todo, setTodo] = useState("");
-
   const [todos, setTodos] = useState([]);
 
   const fetchPost = async () => {
-    await getDocs(collection(db, "clientes")).then((querySnapshot) => {
+    await getDocs(collection(db, "Chamarras")).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
@@ -26,7 +25,7 @@ const Todo = () => {
     e.preventDefault();
 
     try {
-      const docRef = await addDoc(collection(db, "clientes"), {
+      const docRef = await addDoc(collection(db, "Chamarras"), {
         todo: todo,
       });
       console.log("Document written with ID: ", docRef.id);
@@ -38,33 +37,28 @@ const Todo = () => {
   return (
     <section className="todo-container">
       <div className="todo">
-        <h1 className="header">Todo-App</h1>
+        <h1 className="header">Log-In</h1>
 
         <div>
           <div>
             <input
               type="text"
-              placeholder="What do you have to do today?"
+              placeholder="Usuario"
+              onChange={(e) => setTodo(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Contraseña"
               onChange={(e) => setTodo(e.target.value)}
             />
           </div>
 
           <div className="btn-container">
             <button type="submit" className="btn" onClick={addTodo}>
-              Submit
+              Log In
             </button>
           </div>
         </div>
-        <div>
-          <h4>
-            {JSON.stringify(
-              todos.map((cliente) => {
-                return cliente.Name;
-              })
-            )}
-          </h4>
-        </div>
-
         <div className="todo-content">...</div>
       </div>
     </section>

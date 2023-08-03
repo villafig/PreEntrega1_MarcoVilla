@@ -7,16 +7,16 @@ export const NavBar = ({ greetings }) => {
     <nav>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <a href="/users">Registro</a>
         </li>
         <li>
-          <a href="/category/women's clothing">Mujer</a>
+          <a href="/">Catálogo General</a>
         </li>
         <li>
-          <a href="/category/men's clothing">Hombre</a>
+          <a href="/category/women's clothing">Chamarras</a>
         </li>
         <li>
-          <a href="/users">Subir Info</a>
+          <a href="/category/men's clothing">Sudaderas</a>
         </li>
       </ul>
     </nav>
