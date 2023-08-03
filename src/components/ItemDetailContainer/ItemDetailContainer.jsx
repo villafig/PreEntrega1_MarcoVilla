@@ -54,7 +54,7 @@
 //       if (docSnap.exists()) {
 //         setItem({ id: docSnap.id, ...docSnap.data() });
 //       } else {
-//         console.log("No hay disponibilidad del producto");
+//         console.log("No hay disponibilidad");
 //       }
 //     };
 
