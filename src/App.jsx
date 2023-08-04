@@ -88,12 +88,7 @@
 import "./App.css";
 import { NavBar } from "./components/navBar/navBar";
 import { Carwidget } from "./components/navBar/Carwidget";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Outlet,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Chamarras from "./components/Chamarras/Chamarras";
 import Sudaderas from "./components/Sudaderas/Sudaderas";
 
@@ -117,10 +112,9 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/category/:id" element={<CategoryPage />}>
-          <Route path="Chamarras" element={<Chamarras />} />
-          <Route path="Sudaderas" element={<Sudaderas />} />
-        </Route>
+        <Route path="/Chamarras/*" element={<Chamarras />} />
+        <Route path="/Sudaderas/*" element={<Sudaderas />} />
+        <Route path="/category/:id" element={<CategoryPage />} />
         <Route path="/item/:id" element={<ItemPage />} />
         <Route path="/users" element={<UsersPage />} />
       </Routes>

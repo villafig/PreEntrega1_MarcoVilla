@@ -74,41 +74,53 @@
 // export default ItemDetailContainer;
 
 import React, { useState, useEffect } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 
-const ItemDetailContainer = ({ id, onItemLoaded }) => {
-  const [item, setItem] = useState({});
-  const [itemNotFound, setItemNotFound] = useState(false);
+const ItemListContainer = ({ category }) => {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchItem = async () => {
-      const itemDoc = await getDoc(doc(db, "Chamarras", id));
-      if (itemDoc.exists()) {
-        setItem({ id: itemDoc.id, ...itemDoc.data() });
-        onItemLoaded(itemDoc.data());
+    const fetchProducts = async () => {
+      const productsCollection = collection(db, "Chamarras");
+      let queryProducts;
+
+      if (category === "Chamarras" || category === "Sudaderas") {
+        queryProducts = query(
+          productsCollection,
+          where("Categoría", "==", category)
+        );
       } else {
-        setItemNotFound(true);
+        queryProducts = query(productsCollection);
       }
+
+      const querySnapshot = await getDocs(queryProducts);
+      const productsData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProducts(productsData);
     };
 
-    fetchItem();
-  }, [id, onItemLoaded]);
+    fetchProducts();
+  }, [category]);
 
   return (
-    <div>
-      {itemNotFound ? (
-        <p>Producto sin Disponibilidad</p>
-      ) : (
-        <>
-          <h1>{item.title}</h1>
-          <img src={item.Foto} alt={item.title} />
-          <p>{item.Precio} USD</p>
-          <p>{item.Descripción}</p>
-        </>
-      )}
+    <div className="productList">
+      <div className="Product-Lists">
+        {products.map((product) => (
+          <div className="grid-item" key={product.id}>
+            <div>
+              <h2>{product.title}</h2>
+              <img src={product.Foto} alt={product.title} />
+              <p>{product.Precio} USD</p>
+              <p>{product.Descripción}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default ItemDetailContainer;
+export default ItemListContainer;
