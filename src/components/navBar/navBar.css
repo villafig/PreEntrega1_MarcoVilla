@@ -1,26 +1,28 @@
 nav {
-    background-color: #92979B;
+    background-color: #768DA0;
     padding: 10px;
-    width: 1300px;
+    
 }
 
 ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 li {
-    margin-right: 1rem;
+    font-size: 20px;
+
     
 }
 
 a {
     text-decoration: none;
     color: white !important;
-    width: 800px;
 }
 
-a:hover {
+li:hover {
     color: white;
 }
+

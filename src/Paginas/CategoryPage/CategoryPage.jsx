@@ -1,11 +1,11 @@
 import React from "react";
-import ItemListContainer from "../../components/ItemListContainer/ItemListContainer";
+import ProductDetail from "../../components/ProductDetail/ProductDetail";
 
 const CategoryPage = ({ id }) => {
   return (
     <div>
       <h1>{id}</h1>
-      <ItemListContainer category={id} />
+      <ProductDetail category={id} />
     </div>
   );
 };

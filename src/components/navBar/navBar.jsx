@@ -1,22 +1,22 @@
 import React from "react";
 import "./navBar.css";
-import { Carwidget } from "./Carwidget";
+import { Link } from "react-router-dom";
 
 export const NavBar = ({ greetings }) => {
   return (
     <nav>
       <ul>
         <li>
-          <a href="/users">Registro</a>
+          <Link to="/users">Registro</Link>
         </li>
         <li>
-          <a href="/">Catálogo General</a>
+          <Link to="/">Catálogo General</Link>
         </li>
         <li>
-          <a href="/category/women's clothing">Chamarras</a>
+          <Link to="/chamarras">Chamarras</Link>{" "}
         </li>
         <li>
-          <a href="/category/men's clothing">Sudaderas</a>
+          <Link to="/sudaderas">Sudaderas</Link>{" "}
         </li>
       </ul>
     </nav>

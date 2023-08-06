@@ -1,10 +1,6 @@
 import React from "react";
 import "./header.css";
 import image from "./e-commerce-logo.png";
-import { useEffect, useState } from "react";
-//firebase
-import { db } from "../../firebase/firebase";
-import { collection, query, where, getDocs } from "firebase/firestore";
 
 const Header = (props) => {
   return (
