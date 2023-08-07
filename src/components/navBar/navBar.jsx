@@ -22,3 +22,5 @@ export const NavBar = ({ greetings }) => {
     </nav>
   );
 };
+
+export default NavBar;

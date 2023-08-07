@@ -1,7 +1,7 @@
 import React from "react";
 import carrito_de_compras from "./carrito_de_compras.png";
 
-export const Carwidget = () => {
+const Carwidget = ({ numProductos, totalPrecio }) => {
   return (
     <div>
       <img
@@ -9,6 +9,12 @@ export const Carwidget = () => {
         alt="Carrito de compras"
         style={{ width: "80px", height: "80px" }}
       />
+      <div>
+        <p>Productos Seleccionados {numProductos}</p>
+        <p>Precio Total: ${totalPrecio}</p>
+      </div>
     </div>
   );
 };
+
+export default Carwidget;

@@ -8,6 +8,11 @@ import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+
+  const handleBuyClick = () => {
+    navigate(`/item/${product.id}`);
+  };
+
   return (
     <Card
       sx={{
@@ -15,22 +20,22 @@ const ProductCard = ({ product }) => {
         marginBottom: "20px",
         textAlign: "text-align",
       }}
-      onClick={() => navigate(`/item/${product.id}`)}
     >
       <CardActionArea>
         <CardMedia component="img" image={product.Foto} alt="imagen_producto" />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {product.Categoria}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.Descripcion}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            $ {product.Precio}
-          </Typography>
-        </CardContent>
       </CardActionArea>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {product.Categoria}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {product.Descripcion}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          $ {product.Precio}
+        </Typography>
+      </CardContent>
+      <button onClick={handleBuyClick}>Comprar</button>
     </Card>
   );
 };

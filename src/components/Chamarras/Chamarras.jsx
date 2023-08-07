@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import ProductCard from "../ProductCard/productCard";
+import Carwidget from "../Cardwidget/Carwidget";
 
 const Chamarras = () => {
   const [sudaderas, setSudaderas] = useState([]);
@@ -23,16 +24,23 @@ const Chamarras = () => {
       }));
       setSudaderas(sudaderasData);
     } catch (error) {
-      console.error("Error al obtener las Chamarras: ", error);
+      console.error("Produtco no Disponible", error);
     }
   };
 
+  const handleBuyClick = (precio) => {};
+
   return (
     <div>
-      <h1>Sudaderas</h1>
+      <h1>Chamarras</h1>
+      <Carwidget />{" "}
       <div>
         {sudaderas.map((sudadera) => (
-          <ProductCard key={sudadera.id} product={sudadera} />
+          <ProductCard
+            key={sudadera.id}
+            product={sudadera}
+            handleBuyClick={handleBuyClick}
+          />
         ))}
       </div>
     </div>

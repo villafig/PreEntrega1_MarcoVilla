@@ -4,7 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import ProductDetail from "../../components/ProductDetail/ProductDetail";
 
-const ProductDetailPage = () => {
+const ProductDetailPage = ({ setNumProductos, setTotalPrecio }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -28,10 +28,15 @@ const ProductDetailPage = () => {
     }
   };
 
+  const handleBuyClick = (precio) => {
+    setNumProductos((prevNumProductos) => prevNumProductos + 1);
+    setTotalPrecio((prevTotalPrecio) => prevTotalPrecio + precio);
+  };
+
   return (
     <div>
       {product ? (
-        <ProductDetail product={product} />
+        <ProductDetail product={product} handleBuyClick={handleBuyClick} />
       ) : (
         <p>Cargando detalles del producto...</p>
       )}

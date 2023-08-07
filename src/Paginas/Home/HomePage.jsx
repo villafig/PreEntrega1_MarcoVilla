@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import ProductCard from "../../components/ProductCard/productCard";
 
-const HomePage = () => {
+const HomePage = ({ setNumProductos, setTotalPrecio }) => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
@@ -18,10 +18,14 @@ const HomePage = () => {
         id: doc.id,
       }));
       setTodos(newData);
-      console.log(newData);
     } catch (error) {
       console.error("Producto no Disponible: ", error);
     }
+  };
+
+  const handleBuyClick = (precio) => {
+    setNumProductos((prevNumProductos) => prevNumProductos + 1);
+    setTotalPrecio((prevTotalPrecio) => prevTotalPrecio + precio);
   };
 
   return (
@@ -37,7 +41,11 @@ const HomePage = () => {
         }}
       >
         {todos.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            handleBuyClick={handleBuyClick}
+          />
         ))}
       </div>
     </section>
