@@ -6,10 +6,10 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, handleClick, buttonText }) => {
   const navigate = useNavigate();
 
-  const handleBuyClick = () => {
+  const goToDetails = () => {
     navigate(`/item/${product.id}`);
   };
 
@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         textAlign: "text-align",
       }}
     >
-      <CardActionArea>
+      <CardActionArea onClick={goToDetails}>
         <CardMedia component="img" image={product.Foto} alt="imagen_producto" />
       </CardActionArea>
       <CardContent>
@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
           $ {product.Precio}
         </Typography>
       </CardContent>
-      <button onClick={handleBuyClick}>Comprar</button>
+      <button onClick={() => handleClick(product)}>{buttonText}</button>
     </Card>
   );
 };

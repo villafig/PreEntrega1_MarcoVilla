@@ -13,10 +13,10 @@ export const NavBar = ({ greetings }) => {
           <Link to="/">Catálogo General</Link>
         </li>
         <li>
-          <Link to="/chamarras">Chamarras</Link>{" "}
+          <Link to="/category/Chamarras">Chamarras</Link>{" "}
         </li>
         <li>
-          <Link to="/sudaderas">Sudaderas</Link>{" "}
+          <Link to="/category/Sudaderas">Sudaderas</Link>{" "}
         </li>
       </ul>
     </nav>
